@@ -11,7 +11,7 @@ const Naviagtion = () => {
             <NavDropdown title="useState" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/useState">Example 1</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.2">Example 2</NavDropdown.Item>
+              <NavDropdown.Item href="/useState/hookCounter">Example 2</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.3">Example 3</NavDropdown.Item>
               <NavDropdown.Divider />

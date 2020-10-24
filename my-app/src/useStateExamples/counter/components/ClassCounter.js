@@ -27,8 +27,11 @@ class ClassCounter extends Component {
 
     render() {
         return (
-            <div>
+            <div className="m-3 p-4" style={{backgroundColor:'#deff85'}}>
+
+                <h4 className="mb-2">Class Counter Example - using class component</h4>
                 <Button variant="info" onClick={this.incrementCount}> Count {this.state.count} </Button>
+                
             </div>
         )
     }
