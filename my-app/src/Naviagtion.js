@@ -9,7 +9,7 @@ const Naviagtion = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <NavDropdown title="useState" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Example 1</NavDropdown.Item>
+              <NavDropdown.Item href="/useState">Example 1</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.2">Example 2</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -26,7 +26,7 @@ const Naviagtion = () => {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Example 4</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#features">useContext</Nav.Link>
+            <Nav.Link href="/useState">useContext</Nav.Link>
             <Nav.Link href="#pricing">useReducer</Nav.Link>
           </Nav>
           <Nav>

@@ -1,14 +1,17 @@
 import React from 'react'
 import Navigation from './Naviagtion'
 import { Switch, Route } from 'react-router-dom';
+import Welcome from './Welcome';
+import Counter from './useStateExamples/counter/Counter';
 
 const Home = () => {
     return (
         <>
             <Navigation/>
-            <div>
+            <div className="container-fluid" style={{marginTop:'100px'}}>
                 <Switch>
-                    <Route name="useState" exact path="/useState" component={"Hi"} />
+                    <Route name="welcome" exact path="/" component={Welcome} />
+                    <Route name="useState" exact path="/useState" component={Counter} />
                     <Route name="useEffect" exact path="/useEffect" component={"Hi"} />
                     <Route name="useContext" exact path="/useContext" component={"Hi"} />
                     <Route name="useReducer" path="/useReducer" component={"Hi"} />
