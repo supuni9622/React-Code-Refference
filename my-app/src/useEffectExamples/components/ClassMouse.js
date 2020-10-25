@@ -22,7 +22,7 @@ class ClassMouse extends Component {
         return (
             <div className="m-3 p-4" style={{backgroundColor:'#4dff6d'}}>
 
-                <h5> Mouse Coordination</h5>
+                <h5> Mouse Coordination with class component</h5>
                 <h6>X - {this.state.x}  Y - {this.state.y} </h6>
             </div>
         )

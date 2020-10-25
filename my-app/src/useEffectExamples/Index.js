@@ -4,6 +4,8 @@ import HookCounterOne from './components/HookCounterOne'
 import ClassCounterTwo from './components/ClassCounterTwo'
 import HookCounterTwo from './components/HookCounterTwo'
 import ClassMouse from './components/ClassMouse'
+import HookMouse from './components/HookMouse'
+
 /*
     useEffect
 
@@ -20,6 +22,7 @@ const Index = () => {
             <ClassCounterTwo/>
             <HookCounterTwo/>
             <ClassMouse/>
+            <HookMouse/>
         </div>
     )
 }
