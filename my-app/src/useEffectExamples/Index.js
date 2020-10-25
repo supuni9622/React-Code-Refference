@@ -8,6 +8,7 @@ import HookMouse from './components/HookMouse'
 import MouseContainer from './components/MouseContainer'
 import IntervalClassCounter from './components/IntervalClassCounter'
 import IntervalHookCounter from './components/IntervalHookCounter'
+import IntervalHookCounterTwo from './components/IntervalHookCounterTwo'
 
 /*
     useEffect
@@ -29,6 +30,7 @@ const Index = () => {
             <MouseContainer/>
             <IntervalClassCounter/>
             <IntervalHookCounter/>
+            <IntervalHookCounterTwo/>
         </div>
     )
 }
