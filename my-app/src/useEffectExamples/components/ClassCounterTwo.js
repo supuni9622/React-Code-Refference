@@ -31,7 +31,7 @@ class ClassCounterTwo extends Component {
         return (
             <div className="m-3 p-4" style={{backgroundColor:'#ffc4ab'}}>
 
-                <h6 className='m-3'>Side eefects in class component</h6>
+                <h6 className='m-3'>Side efects in class component</h6>
                 <input 
                     type='text' 
                     value={this.state.name} 

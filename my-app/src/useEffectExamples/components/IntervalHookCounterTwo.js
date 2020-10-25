@@ -17,7 +17,7 @@ const IntervalHookCounterTwo = () =>{
             inside the useEffect and call it as well as put currect dependencies.
         */
         const doSomething = () => {
-            console.log("some prop" + count)
+            console.log("some prop")
         }
         doSomething()
         
@@ -25,7 +25,7 @@ const IntervalHookCounterTwo = () =>{
         return ()=> {
             clearInterval(interval)
         }
-    }, [count])
+    }, [])
 
     /*
         We can use multiple useEffect calls withing the same component 
