@@ -18,6 +18,11 @@ class ClassMouse extends Component {
         window.addEventListener('mousemove', this.logMousePosition)
     }
 
+    // Add cleanUp method
+    componentWillUnmount() {
+        window.removeEventListener('mousemove', this.logMousePosition)
+    }
+
     render() {
         return (
             <div className="m-3 p-4" style={{backgroundColor:'#4dff6d'}}>

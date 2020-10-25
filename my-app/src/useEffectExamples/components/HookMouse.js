@@ -15,6 +15,12 @@ const  HookMouse = () => {
     useEffect(() => {
         console.log('useEffect called')
         window.addEventListener('mousemove', logMousePosition)
+
+        // Adding cleanUp - can canselling subscriptions, timers and remove eventHandlers
+        return () => {
+            console.log('Component unmounting code')
+            window.removeEventListener('mousemove', logMousePosition)
+        }
     }, [])
 
     return (
