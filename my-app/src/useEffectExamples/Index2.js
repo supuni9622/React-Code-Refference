@@ -1,6 +1,7 @@
 import React from 'react'
 import DataFetch from './components/dataFetching/DataFetch'
 import DataFetchTwo from './components/dataFetching/DataFetchTwo'
+import DataFetchThree from './components/dataFetching/DataFetchThree'
 
 /*  
     Fetching data from API endpoint
@@ -14,6 +15,7 @@ const Index2 = () => {
         <div className='container'>
             <DataFetch/>
             <DataFetchTwo/>
+            <DataFetchThree/>
         </div>
     )
 }
