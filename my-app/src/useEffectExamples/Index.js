@@ -1,6 +1,7 @@
 import React from 'react'
 import ClassCounterOne from './components/ClassCounterOne'
 import HookCounterOne from './components/HookCounterOne'
+import ClassCounterTwo from './components/ClassCounterTwo'
 
 /*
     useEffect
@@ -15,6 +16,7 @@ const Index = () => {
         <div className="container">
             <ClassCounterOne/>
             <HookCounterOne/>
+            <ClassCounterTwo/>
         </div>
     )
 }
