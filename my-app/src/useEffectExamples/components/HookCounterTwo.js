@@ -6,18 +6,19 @@ const HookCounterOne = () => {
     const [count, setCount] = useState(0)
     const [name, setName] = useState('')
 
-    /*
-        * When we specify useEffect, we are basicaly request in React to execute a function 
-          that is pass as an argument everytime the component renders
-        * useEffect run after every render of the component
-    */
+   /*
+            Conditionaly rendering - passing dependencies as array
+            This is an optimisation technique
+   */
     useEffect(()=> {
-        console.log("useEffect update not fixed conditionaly rendering")
+
+        console.log("useEffect update fixed conditionaly rendering")
         document.title = `You clicked ${count} times`
-    })
+
+    }, [count])
 
     return (
-        <div className="m-3 p-4" style={{backgroundColor:'#f1b6fa'}}>
+        <div className="m-3 p-4" style={{backgroundColor:'#d8d6ff'}}>
 
             <h6 className='m-3'>With useEffect hook</h6>
 
@@ -26,7 +27,7 @@ const HookCounterOne = () => {
                     value={name} 
                     onChange={e => {setName(e.target.value)}}
                 />
-            <Button variant='success' onClick={()=> setCount(count + 1)}>
+            <Button variant='dark' onClick={()=> setCount(count + 1)}>
                 Click {count} times
             </Button>
         </div>

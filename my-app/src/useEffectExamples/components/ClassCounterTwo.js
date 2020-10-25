@@ -21,7 +21,7 @@ class ClassCounterTwo extends Component {
 
         // Conditionaly update only when the count value changes
         if(prevState.count !== this.state.count){
-            console.log("Updating component")
+            console.log("Updating class component with fixed conditionaly rendering")
             document.title = `Clicked ${this.state.count} times`
         }
        
@@ -38,7 +38,7 @@ class ClassCounterTwo extends Component {
                     onChange={e => {this.setState({name: e.target.value})}}
                 />
 
-                <Button variant='info' onClick={() => this.setState({count: this.state.count + 1})}>
+                <Button variant='danger' onClick={() => this.setState({count: this.state.count + 1})}>
                     Click {this.state.count} times
                 </Button>
             </div>

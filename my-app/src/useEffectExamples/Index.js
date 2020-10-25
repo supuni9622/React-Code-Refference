@@ -2,6 +2,7 @@ import React from 'react'
 import ClassCounterOne from './components/ClassCounterOne'
 import HookCounterOne from './components/HookCounterOne'
 import ClassCounterTwo from './components/ClassCounterTwo'
+import HookCounterTwo from './components/HookCounterTwo'
 
 /*
     useEffect
@@ -17,6 +18,7 @@ const Index = () => {
             <ClassCounterOne/>
             <HookCounterOne/>
             <ClassCounterTwo/>
+            <HookCounterTwo/>
         </div>
     )
 }
