@@ -1,4 +1,5 @@
 import React from 'react'
+import CounterOne from './components/CounterOne'
 
 /*
     * useReducer is a hook that is used for state management
@@ -28,8 +29,8 @@ console.log("Testing reduce() in vanila javaScript :" + sum)
 
 const IndexReducer = () => {
     return (
-        <div>
-            User Reducer
+        <div className="continer">
+            <CounterOne/>
         </div>
     )
 }
