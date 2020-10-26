@@ -15,12 +15,15 @@ import ComponentC from './components/ComponentC'
 */
 
 export const UserContext = React.createContext()
+export const ChannelContext = React.createContext()
 
 const IndexContext = () => {
     return (
         <div className="container">
             <UserContext.Provider value={'Supuni'}>
-                <ComponentC/>
+                <ChannelContext.Provider value={'Code Evalution'}>
+                    <ComponentC/>
+                </ChannelContext.Provider>
             </UserContext.Provider>
         </div>
     )
