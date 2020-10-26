@@ -12,17 +12,7 @@ const Naviagtion = () => {
           <Nav.Link href="/useEffect">useEffect</Nav.Link>
           <Nav.Link href="/useEffect/datafetch">useEffect- data fetching</Nav.Link>
           <Nav.Link href="/useContext">useContext</Nav.Link>
-            <NavDropdown title="useEffect" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Example 1</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.2">Example 2</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Example 3</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Example 4</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="/useState">useContext</Nav.Link>
-            <Nav.Link href="#pricing">useReducer</Nav.Link>
+          <Nav.Link href="/useReducer">useReducer</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#pricing">useMemo</Nav.Link>
