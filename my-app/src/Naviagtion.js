@@ -11,6 +11,7 @@ const Naviagtion = () => {
           <Nav.Link href="/useState">useState</Nav.Link>
           <Nav.Link href="/useEffect">useEffect</Nav.Link>
           <Nav.Link href="/useEffect/datafetch">useEffect- data fetching</Nav.Link>
+          <Nav.Link href="/useContext">useContext</Nav.Link>
             <NavDropdown title="useEffect" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Example 1</NavDropdown.Item>
               <NavDropdown.Divider />
