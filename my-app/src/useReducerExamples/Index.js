@@ -2,6 +2,7 @@ import React from 'react'
 import CounterOne from './components/CounterOne'
 import CounterTwo from './components/CounterTwo'
 import CounterThree from './components/CounterThree'
+import GlobaleIndex from './components/globalState/GlobaleIndex'
 
 /*
     * useReducer is a hook that is used for state management
@@ -19,6 +20,9 @@ import CounterThree from './components/CounterThree'
     * 
     * useReducer(reducer, initialState)
     * reducer(currentState, action)
+    * 
+    * CounterOne, CounterTwo & CounterThree shows the local state management
+    * CounterFour shows share state between components which is called Global state manangement  ==> useReducer + useContext
 */
 
 
@@ -35,6 +39,7 @@ const IndexReducer = () => {
             <CounterOne/>
             <CounterTwo/>
             <CounterThree/>
+            <GlobaleIndex/>
         </div>
     )
 }
