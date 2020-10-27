@@ -1,6 +1,7 @@
 import React from 'react'
 import CounterOne from './components/CounterOne'
 import CounterTwo from './components/CounterTwo'
+import CounterThree from './components/CounterThree'
 
 /*
     * useReducer is a hook that is used for state management
@@ -33,6 +34,7 @@ const IndexReducer = () => {
         <div className="continer">
             <CounterOne/>
             <CounterTwo/>
+            <CounterThree/>
         </div>
     )
 }
