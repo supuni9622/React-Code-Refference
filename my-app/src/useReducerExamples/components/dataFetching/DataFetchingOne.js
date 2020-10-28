@@ -24,6 +24,7 @@ const DataFetchingOne = () => {
 
     return (
         <div className='p-3 m-3' style={{backgroundColor:'#beff99'}}>
+            <h2 style={{textAlign:'center'}}>Data Fetching with useState hook</h2>
             { loading ? 
                 <h5>Loading</h5> 
                 : <h3> {post.title} </h3>
