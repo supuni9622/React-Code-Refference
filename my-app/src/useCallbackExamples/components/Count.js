@@ -10,4 +10,5 @@ const Count = ({text, count}) => {
     )
 }
 
-export default Count
+// Cover with react.memo to prevent re-rendering without any prop or state chnages
+export default React.memo(Count)
