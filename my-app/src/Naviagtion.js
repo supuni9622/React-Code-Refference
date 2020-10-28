@@ -15,9 +15,10 @@ const Naviagtion = () => {
           <Nav.Link href="/useReducer">useReducer</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#pricing">useMemo</Nav.Link>
-            <Nav.Link href="#pricing">useRef</Nav.Link>
-            <Nav.Link href="#pricing">Custom Hooks</Nav.Link>
+          <Nav.Link href="/useCallback">useCallback</Nav.Link>
+            <Nav.Link href="/useMemo">useMemo</Nav.Link>
+            <Nav.Link href="/useRef">useRef</Nav.Link>
+            <Nav.Link href="/customHooks">Custom Hooks</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

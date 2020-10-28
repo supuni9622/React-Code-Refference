@@ -6,7 +6,8 @@ import Counter from './useStateExamples/counter/Counter';
 import Index from './useEffectExamples/Index';
 import Index2 from './useEffectExamples/Index2';
 import IndexContext from './useContextExamples/Index';
-import IndexReducer from './useReducerExamples/Index'
+import IndexReducer from './useReducerExamples/Index';
+import IndexCallback from './useCallbackExamples/IndexCallback';
 
 const Home = () => {
     return (
@@ -20,9 +21,9 @@ const Home = () => {
                     <Route name="useEffectDataFetch" exact path="/useEffect/datafetch" component={Index2} />
                     <Route name="useContext" exact path="/useContext" component={IndexContext} />
                     <Route name="useReducer" path="/useReducer" component={IndexReducer} />
-                    <Route name="useMemo" exact path="/useMemo" component={"Hi"} />
+                    <Route name="useCallback" exact path="/useCallback" component={IndexCallback} />
+                    <Route name="useMemo" exact path="/useMemo" component={'Hi'} />
                     <Route name="useRef" exact path="/useRef" component={"Hi"} />
-                    <Route name="useCallback" exact path="/useCallback" component={"Hi"} />
                     <Route name="customHooks" exact path="/customHooks" component={"Hi"} />
                 </Switch>
             </div>
