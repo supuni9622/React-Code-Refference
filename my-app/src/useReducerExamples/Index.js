@@ -24,6 +24,16 @@ import DataFetchingIndex from './components/dataFetching/DataFetchingIndex'
     * 
     * CounterOne, CounterTwo & CounterThree shows the local state management
     * CounterFour shows share state between components which is called Global state manangement  ==> useReducer + useContext
+    * 
+    * ==============================================================================================================================
+    * 
+    * When to use useReducer hook over the useState hook wheres both are used for state management ?
+    * 
+    *   1. Type of state ------ (Number, String, Boolean - useState )  ( Object, Array - useReducer)
+    *   2. Number of state transistions   ---------- ( One or two - useState )  ( Too many  - useReducer )
+    *   3. Related state transistions?   -------------  ( No - useState )  ( Yes - useReducer )
+    *   4. Business Logic -----------  ( For No business logic - useState ) ( For Complex business logic - useReducer )
+    *   5. Local vs global ----------  ( For local state - useState ) ( For global state - useReducer )
 */
 
 
