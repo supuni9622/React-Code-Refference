@@ -3,6 +3,7 @@ import CounterOne from './components/CounterOne'
 import CounterTwo from './components/CounterTwo'
 import CounterThree from './components/CounterThree'
 import GlobaleIndex from './components/globalState/GlobaleIndex'
+import DataFetchingIndex from './components/dataFetching/DataFetchingIndex'
 
 /*
     * useReducer is a hook that is used for state management
@@ -40,6 +41,7 @@ const IndexReducer = () => {
             <CounterTwo/>
             <CounterThree/>
             <GlobaleIndex/>
+            <DataFetchingIndex/>
         </div>
     )
 }
