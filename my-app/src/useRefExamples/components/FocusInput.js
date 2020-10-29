@@ -10,7 +10,7 @@ const FocusInput = () => {
     },[])
 
     return (
-        <div>
+        <div style={{backgroundColor:'#f1ff75'}}>
             <input ref ={inputRef} type ="text"></input>
         </div>
     )
