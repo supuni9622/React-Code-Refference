@@ -8,6 +8,7 @@ import Index2 from './useEffectExamples/Index2';
 import IndexContext from './useContextExamples/Index';
 import IndexReducer from './useReducerExamples/Index';
 import IndexCallback from './useCallbackExamples/IndexCallback';
+import IndexMemo from './useMemoExamples/IndexMemo'
 
 const Home = () => {
     return (
@@ -22,7 +23,7 @@ const Home = () => {
                     <Route name="useContext" exact path="/useContext" component={IndexContext} />
                     <Route name="useReducer" path="/useReducer" component={IndexReducer} />
                     <Route name="useCallback" exact path="/useCallback" component={IndexCallback} />
-                    <Route name="useMemo" exact path="/useMemo" component={'Hi'} />
+                    <Route name="useMemo" exact path="/useMemo" component={IndexMemo} />
                     <Route name="useRef" exact path="/useRef" component={"Hi"} />
                     <Route name="customHooks" exact path="/customHooks" component={"Hi"} />
                 </Switch>
