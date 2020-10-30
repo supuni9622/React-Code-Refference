@@ -10,7 +10,6 @@ import IndexReducer from './useReducerExamples/Index';
 import IndexCallback from './useCallbackExamples/IndexCallback';
 import IndexMemo from './useMemoExamples/IndexMemo';
 import IndexRef from './useRefExamples/IndexRef';
-import CutomIndex from './customHooksExamples/CustomIndex'
 import CustomIndex from './customHooksExamples/CustomIndex';
 
 const Home = () => {

@@ -14,8 +14,8 @@ const Counter = () => {
     }
 
     const isEven = useMemo(() => {
-        let i =0
-        while(1 < 200000000) i++ 
+        // let i = 0
+        // while(1 < 200000000) i++ 
         return counterOne % 2 === 0
     },[counterOne])
 
@@ -31,7 +31,7 @@ const Counter = () => {
                 <button onClick={incrementOne}> Count One - {counterOne} </button>
                 
                 {/* Now isEven is a catch value instead of a function call */}
-                <span className='m-2'>{ isEven() ? 'Even' : 'Odd' }</span>
+                <span className='m-2'>{ isEven ? 'Even' : 'Odd' }</span>
             </div>
             <div className='m-3 p-3'>
             <button onClick={incrementTwo}> Count Two - {counterTwo}</button>
