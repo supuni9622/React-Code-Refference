@@ -1,15 +1,16 @@
 import {useState} from 'react'
 
 // Can customise the intial value by passing it as parameter
-const useCounter = (initialCount = 0) => {
+// Add second parameter as value
+const useCounter = (initialCount = 0, value) => {
     const [count, setCount] = useState(initialCount)
 
     const increment = () => {
-        setCount(prevCount => prevCount + 1)
+        setCount(prevCount => prevCount + value)
     }
 
     const decrement = () => {
-        setCount(prevCount => prevCount - 1)
+        setCount(prevCount => prevCount - value)
     }
  
     const reset = () => {

@@ -3,7 +3,7 @@ import useCounter from '../hooks/useCounter'
 
 const CounterOne = () => {
 
-    const [count, increment, decrement, reset] = useCounter()
+    const [count, increment, decrement, reset] = useCounter(0, 1)
 
     return (
         <div className='p-3 m-3' style={{backgroundColor:'#12ff12', textAlign:'center'}}>
