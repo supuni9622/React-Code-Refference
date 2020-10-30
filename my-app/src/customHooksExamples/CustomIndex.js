@@ -1,5 +1,6 @@
 import React from 'react'
 import DocTitleOne from './components/DocTitleOne'
+import DocTitleTwo from './components/DocTitleTwo'
 
 /*
     * Custom hook is basically a javascript function whose name starts with 'use'
@@ -14,6 +15,7 @@ const CustomIndex = () => {
         <div className='container'>
             <h1>Custom Hooks</h1>
             <DocTitleOne/>
+            <DocTitleTwo/>
         </div>
     )
 }
