@@ -1,20 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
+import useCounter from '../hooks/useCounter'
 
 const CounterTwo = () => {
 
-    const [count, setCount] = useState(0)
-
-    const increment = () => {
-        setCount(prevCount => prevCount + 1)
-    }
-
-    const decrement = () => {
-        setCount(prevCount => prevCount - 1)
-    }
-
-    const reset = () => {
-        setCount(0)
-    }
+    // Using useCounter custom hook
+    // use initial value as 10 
+    const [count, increment, decrement, reset] = useCounter(10)
 
     return (
         <div className='p-3 m-3' style={{backgroundColor:'#12ccab', textAlign:'center'}}>
