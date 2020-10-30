@@ -3,6 +3,7 @@ import DocTitleOne from './components/DocTitleOne'
 import DocTitleTwo from './components/DocTitleTwo'
 import CounterOne from './components/CounterOne'
 import CounterTwo from './components/CounterTwo'
+import UserForm from './components/UserForm'
 
 /*
     * Custom hook is basically a javascript function whose name starts with 'use'
@@ -25,6 +26,10 @@ const CustomIndex = () => {
                 <h2>Second Custom Hook Example</h2>
                 <CounterOne/>
                 <CounterTwo/>
+            </div>
+            <div>
+                <h2>Third Custom Hook Example</h2>
+                <UserForm/>
             </div>
             
         </div>
