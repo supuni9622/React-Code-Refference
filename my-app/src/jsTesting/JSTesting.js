@@ -61,8 +61,52 @@ const JSTesting = () => {
           // { one: 1, two: 2 }
     };
 
+    const testingFunction2 = () => {
+        // Converting a Map to an object --- this is not working
+        var object = {}
+        var map = new Map([ 
+            [ "a", "one"], 
+            [ "b" , "two"], 
+            [ "c", "three"]
+            //[ "d" : new Map([ [ "e": "four"] ]) ]
+            ])
+     
+            const mapToObject = (object, map) => {
+                for(let[key,value] of map) { object[key] = value }
+            }
+        console.log(JSON.stringify(mapToObject(object, map), null, ' '));
+
+
+        //Converting an object to a Map
+        const o3 = {
+            "a": "one",
+            "b": "two",
+            "c": "three",
+            "d": { "e": "four"}
+        };
+  
+
+        function objectToMap(o) {
+            let m = new Map()
+            for(let k of Object.keys(o)) {
+                if(o[k] instanceof Object) {
+                    m.set(k, objectToMap(o[k]))   
+                }
+                else {
+                    m.set(k, o[k])
+                }    
+            }
+            return m
+        }
+  
+        var m2 = objectToMap(o3);
+        console.log(m2.get("d").get("e"));
+        console.log(m2);
+    };
+
     useEffect(()=> {
-        testingFunction();
+        //testingFunction();
+        testingFunction2();
     },[]);
 
     return (
