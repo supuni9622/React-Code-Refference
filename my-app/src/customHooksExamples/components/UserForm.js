@@ -5,7 +5,7 @@ const UserForm = () => {
 
     // Using useInput custom hook
     const [firstName,bindFirstName, resetFirstName] = useInput('')
-    const [lastName,bindLastName, resetLastName] = useInput('')
+    const [lastName,bindLastName, resetLastName] = useInput('')      
 
     const submitHandler = e => {
         e.preventDefault()

@@ -19,6 +19,7 @@ const Naviagtion = () => {
             <Nav.Link href="/useMemo">useMemo</Nav.Link>
             <Nav.Link href="/useRef">useRef</Nav.Link>
             <Nav.Link href="/customHooks">Custom Hooks</Nav.Link>
+            <Nav.Link href="/testing">JS Testing</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

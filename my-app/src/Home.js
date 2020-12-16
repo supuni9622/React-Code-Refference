@@ -11,6 +11,7 @@ import IndexCallback from './useCallbackExamples/IndexCallback';
 import IndexMemo from './useMemoExamples/IndexMemo';
 import IndexRef from './useRefExamples/IndexRef';
 import CustomIndex from './customHooksExamples/CustomIndex';
+import JSTesting from './jsTesting/JSTesting';
 
 const Home = () => {
     return (
@@ -28,6 +29,7 @@ const Home = () => {
                     <Route name="useMemo" exact path="/useMemo" component={IndexMemo} />
                     <Route name="useRef" exact path="/useRef" component={IndexRef} />
                     <Route name="customHooks" exact path="/customHooks" component={CustomIndex} />
+                    <Route name="jsTesting" exact path="/testing" component={JSTesting} />
                 </Switch>
             </div>
            
