@@ -394,6 +394,51 @@ const JSTesting = () => {
         console.log(map);
     }
 
+    const testingFunction9 = () => {
+
+        //Convert array of arrays to array of objects grouped together
+        const data = [
+            ['orange', 'fruit'],
+            ['red', 'color'],
+            ['green', 'color'],
+            ['orange', 'color'],
+            ['banana', 'fruit'],
+            ['blue', 'color'],
+            ['lemon', 'fruit'],
+            ['mango', 'fruit'],
+            ['lemon', 'color'],
+         ];
+
+         const groupData = arr => {
+            return arr.reduce((acc, val) => {
+               const [value, groupName] = val;
+               const groupIndex = acc.findIndex(el => el?.group === groupName);
+               if(groupIndex !== -1){
+                  acc[groupIndex].value.push(value);
+               }else{
+                  acc.push({
+                     group: groupName,
+                     value: [value]
+                  });
+               }
+               return acc;
+            }, []);
+         };
+         console.log(groupData(data));
+
+         // OUTPUT 
+        //  [
+        //     { group: 'fruit', value: [ 'orange', 'banana', 'lemon', 'mango' ] },
+        //     {
+        //        group: 'color',
+        //        value: [ 'red', 'green', 'orange', 'blue', 'lemon' ]
+        //     }
+        //  ]
+
+
+         
+    }
+
     useEffect(()=> {
         //testingFunction();
         //testingFunction2();
@@ -402,7 +447,8 @@ const JSTesting = () => {
         //testingFunction5();
         //testingFunction6();
         //testingFunction7();
-        testingFunction8();
+        //testingFunction8();
+        testingFunction9();
 
     },[]);
 
