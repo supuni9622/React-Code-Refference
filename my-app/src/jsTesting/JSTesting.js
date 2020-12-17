@@ -213,12 +213,103 @@ const JSTesting = () => {
             console.log(transformedArray);
     }
 
+    const testingFunction6 = () => {
+        //Iterate over objects
+        // 1st case
+        const obj = { a: 1, b: 2 };
+
+        for (const key in obj) {
+            console.log("key", key);
+            console.log("value", obj[key]);
+        }
+
+        // 2nd case
+        const user = {
+            name : 'Supuni',
+            age : 45,
+            scl : 'FHS'
+        }
+        const ageExists = Object.keys(user).includes("age");
+        console.log('ageExists ? ', ageExists);
+
+        // 3rd case
+        const values = Object.keys(user).map((key) => user[key]);
+        console.log(values);
+
+        // 4th case
+        Object.keys(user).map((key) => console.log('Test: ', user[key]));
+
+        // 5th case
+        const monthlyExpenses = {
+            food: 400,
+            rent: 1700,
+            insurance: 550,
+            internet: 49,
+            phone: 95,
+          };
+
+          const monthlyTotal = Object.values(monthlyExpenses).reduce((acc, expense) => acc + expense,
+            0);
+          
+          console.log('Monthly Total : ' , monthlyTotal);
+
+          // 6th case
+          const users = {
+            "1": {
+              name: "John",
+              age: 29,
+            },
+            "2": {
+              name: "Jane",
+              age: 42,
+            },
+            "3": {
+              name: "Fred",
+              age: 17,
+            },
+          };
+
+          const objEntries = Object.entries(users)
+
+          console.log(objEntries);
+          console.log(objEntries[0]);
+
+          objEntries.map((key) => console.log('Test1: ', key[0], 'Test2: ',  key[1]));
+
+          // 7th case : Replacing MAP/ FILTER with a single REDUCE
+
+          const usersOver20 = Object.entries(users).reduce((acc, [id, user]) => {
+            if (user.age > 20) {
+                acc.push({ ...user, id })
+            }
+            return acc;
+          }, []);
+
+          console.log(usersOver20);
+
+          // Output
+        //   [
+        //       {
+        //           name : 'John',
+        //           age : 29,
+        //           id : '1'
+        //     },
+        //     {
+        //         name : 'Jane',
+        //         age : 42,
+        //         id : '2'
+        //     }
+        //   ]
+    }
+
     useEffect(()=> {
         //testingFunction();
         //testingFunction2();
         //testingFunction3();
         //testingFunction4();
-        testingFunction5();
+        //testingFunction5();
+        testingFunction6();
+
     },[]);
 
     return (
