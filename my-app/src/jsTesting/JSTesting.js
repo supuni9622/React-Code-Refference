@@ -461,25 +461,47 @@ const JSTesting = () => {
             return res;
          };
          console.log(arrayToObject(arr));
+
+         // OUTPUT
+        //  [
+        //     { juice: 'apple', maker: 'motts', price: 12 },
+        //     { juice: 'orange', maker: 'sunkist', price: 11 }
+        //  ][
+        //     { juice: 'apple', maker: 'motts', price: 12 },
+        //     { juice: 'orange', maker: 'sunkist', price: 11 }
+        //  ]
     }
 
     useEffect(()=> {
-        //testingFunction();
-        //testingFunction2();
-        //testingFunction3();
-        //testingFunction4();
-        //testingFunction5();
-        //testingFunction6();
-        //testingFunction7();
-        //testingFunction8();
-        //testingFunction9();
+        testingFunction();
+        testingFunction2();
+        testingFunction3();
+        testingFunction4();
+        testingFunction5();
+        testingFunction6();
+        testingFunction7();
+        testingFunction8();
+        testingFunction9();
         testingFunction10();
-
+    
     },[]);
 
     return (
         <div>
             <h1>For JS Testing</h1>
+            <h4>Test Cases</h4>
+            <ol>
+                <li>Converting object to an array</li>
+                <li>Converting an object to a Map</li>
+                <li>convert nested array pairs to objects in an array</li>
+                <li>Convert object of objects to array</li>
+                <li>Enterprise loyalty analytics- chart data format</li>
+                <li>Iterate over objects</li>
+                <li>Convert array of objects to an object of arrays</li>
+                <li>Group objects inside the nested array</li>
+                <li>Convert array of arrays to array of objects grouped together</li>
+                <li>convert array into array of objects using map() and reduce() </li>
+            </ol>
         </div>
     )
 }
