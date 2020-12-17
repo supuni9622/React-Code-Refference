@@ -439,6 +439,30 @@ const JSTesting = () => {
          
     }
 
+    const testingFunction10 = () => {
+        //convert array into array of objects using map() and reduce() 
+        const arr = [
+            [
+               ['juice', 'apple'], ['maker', 'motts'], ['price', 12]
+            ],
+            [
+               ['juice', 'orange'], ['maker', 'sunkist'], ['price', 11]
+            ]
+         ];
+
+         const arrayToObject = arr => {
+            let res = [];
+            res = arr.map(list => {
+               return list.reduce((acc, val) => {
+                  acc[val[0]] = val[1];
+                  return acc;
+               }, {});
+            });
+            return res;
+         };
+         console.log(arrayToObject(arr));
+    }
+
     useEffect(()=> {
         //testingFunction();
         //testingFunction2();
@@ -448,7 +472,8 @@ const JSTesting = () => {
         //testingFunction6();
         //testingFunction7();
         //testingFunction8();
-        testingFunction9();
+        //testingFunction9();
+        testingFunction10();
 
     },[]);
 
