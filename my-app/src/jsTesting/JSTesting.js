@@ -336,9 +336,62 @@ const JSTesting = () => {
         //     '2016-06-28': [ 31 ]
         //  }
 
-        
+
        
 
+    }
+
+    const testingFunction8 = () => {
+        //Group objects inside the nested array
+
+        const parentArray = [[
+            {
+               key: 123,
+               value: 'India'
+            }, {
+               key: 124,
+               value: 'USA'
+            }, {
+               key: 125,
+               value: 'Japan'
+            }, {
+               key: 126,
+               value: 'Denmark'
+            }, {
+                  key: 127,
+               value: 'Austria'
+            },
+         ], [
+            {
+               key: 124,
+               value: 'Kenya'
+            }, {
+               key: 126,
+               value: 'UK'
+            }, {
+               key: 123,
+               value: 'Germany'
+            }, {
+               key: 127,
+               value: 'Spain'
+            }, {
+               key: 125,
+               value: 'Portugal'
+            },
+         ]];
+
+        const map = {};
+        parentArray.forEach(arr => {
+            arr.forEach(obj => {
+                const { key, value } = obj;
+                if(map[key]){
+                    map[key].push(value);
+                }else{
+                    map[key] = [value]
+                }
+            })
+        });
+        console.log(map);
     }
 
     useEffect(()=> {
@@ -348,7 +401,8 @@ const JSTesting = () => {
         //testingFunction4();
         //testingFunction5();
         //testingFunction6();
-        testingFunction7();
+        //testingFunction7();
+        testingFunction8();
 
     },[]);
 
