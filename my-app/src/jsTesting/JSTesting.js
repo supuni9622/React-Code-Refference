@@ -302,13 +302,53 @@ const JSTesting = () => {
         //   ]
     }
 
+    const testingFunction7 = () => {
+        // Convert array of objects to an object of arrays
+        const nights = [
+            { "2016-06-25": 32, "2016-06-26": 151, "2016-06-27": null },
+            { "2016-06-24": null, "2016-06-25": null, "2016-06-26": null },
+            { "2016-06-26": 11, "2016-06-27": 31, "2016-06-28": 31 },
+         ];
+
+         const arrayToObject = (arr = []) => {
+            const res = {};
+            for(let i = 0; i < arr.length; i++){
+               const keys = Object.keys(arr[i]);
+               for(let j = 0; j < keys.length; j++){
+                  if(res.hasOwnProperty(keys[j])){
+                     res[keys[j]].push(arr[i][keys[j]]);
+                  }
+                  else{
+                     res[keys[j]] = [arr[i][keys[j]]];
+                  }
+               }
+            };
+            return res;
+         };
+         console.log(arrayToObject(nights));
+
+         // OUTPUT
+        //  {
+        //     '2016-06-25': [ 32, null ],
+        //     '2016-06-26': [ 151, null, 11 ],
+        //     '2016-06-27': [ null, 31 ],
+        //     '2016-06-24': [ null ],
+        //     '2016-06-28': [ 31 ]
+        //  }
+
+        
+       
+
+    }
+
     useEffect(()=> {
         //testingFunction();
         //testingFunction2();
         //testingFunction3();
         //testingFunction4();
         //testingFunction5();
-        testingFunction6();
+        //testingFunction6();
+        testingFunction7();
 
     },[]);
 
