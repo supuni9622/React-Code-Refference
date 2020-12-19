@@ -759,6 +759,75 @@ const JSTesting = () => {
     console.log("Result:", result);
     }
 
+    const testingFunction13 = () => {
+      // Merge arrays
+
+      // 1st way - Using the loop
+      const mergeArrays = (fromArray, toArray) => {
+        for(let i = 0, len = fromArray.length; i < len; i++) {
+               toArray.push(fromArray[i]);
+        }
+         return toArray;
+      }
+   
+      const array1 = [1,2,3,4,5];
+      const array2= [6,7,8,9,10];
+      const array3 = [];
+
+      const mergeArraysResult1 = mergeArrays(array1, array3);
+      console.log('Merge arrays result 1 :', mergeArraysResult1);
+      console.log('Array 3:', array3);
+
+      const mergeArraysResult2 = mergeArrays(array2, array3);
+      console.log('Merge arrays result 2: ', mergeArraysResult2);
+
+      //Using spread operator
+      const array4 = ['a','b','c','d','e'];
+      const array5 = [10,20,30,40,50];
+      const array6 = [...array4, ...array5];
+
+      console.log('Merge using spread operator', array6);
+
+      const array7 = [];
+      array7.push(...array4, ...array5);
+
+      console.log('Merge using spread operator and push ', array7);
+
+      const string ="two";
+      const arrayOfChar = [...string];
+
+      console.log('Convert string to array : ',arrayOfChar );
+
+      // 3rd way - Using concat method
+
+      const a = 'Supuni'
+      const b = 24
+      const c = {
+        name : 'Kasuni',
+        who : 'best friend'
+      }
+      const array8 = [a,b,c]
+      const array9 = [6,7,8,9,10];
+
+      const array10 = array8.concat(array9);
+      console.log('Array merge using concat : ', array10);
+
+      const array11 = [].concat(array8, array9);
+      console.log('Array merge using concat 2 : ', array11);
+
+      // 4th way - Using Reduce method
+      var array12 = [1,2,3,4,5];
+      var array13 = [6,7,8,9,10];
+
+      var array14 = array13.reduce((newArray, item) => {
+          newArray.push(item);
+          return newArray;
+
+      }, array12);
+
+      console.log('Merge array using reduce method : ', array14);
+    }
+
     useEffect(()=> {
       //   testingFunction();
       //   testingFunction2();
@@ -771,7 +840,8 @@ const JSTesting = () => {
       //   testingFunction9();
       //   testingFunction10();
       // testingFunction11();
-      testingFunction12();
+      //testingFunction12();
+      testingFunction13();
     },[]);
 
     return (
@@ -791,6 +861,7 @@ const JSTesting = () => {
                 <li>convert array into array of objects using map() and reduce() </li>
                 <li>6 ways to remove duplicates from an array </li>
                 <li>Merge sort example </li>
+                <li>Merge arrays </li>
             </ol>
         </div>
     )
