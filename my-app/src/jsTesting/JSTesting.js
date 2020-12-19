@@ -572,17 +572,118 @@ const JSTesting = () => {
         //  ]
     }
 
+    const testingFunction11 = () => {
+      // 6 ways to remove duplicates from an array 
+
+      // 1st way - Use teh filter method
+      const arr = ['banana' , 'apple', 'orange', 'lemon', 'apple', 'lemon']
+      const removeDuplicateData = (arr) => {
+        return arr.filter((value, index) => arr.indexOf(value) === index);
+      }
+      console.log('Original array method 1 : ', arr);
+      console.log('Remove dulication from array method 1 : ', removeDuplicateData(arr));
+
+        //Getting duplicate values
+        const duplicateData = (arr) => {
+          return arr.filter((value, index) => arr.indexOf(value) !== index);
+        }
+        console.log('Getting duplicate data method 1 : ', duplicateData(arr));
+
+      // 2nd way - By using a Set
+      // Sets are a new object type with ES6 that allows you to create collections of unique values
+
+      const removeDuplicate2 = (arr) => {
+        return [...new Set(arr)]
+      }
+
+      console.log('Remove dulication from array method 2 : ', removeDuplicate2(arr));
+
+      // 3rd way - Using the forEach method
+      const removeDuplicate3 = (arr) => {
+        const unique = [];
+        arr.forEach(element => {
+          if(!unique.includes(element)){
+            unique.push(element)
+          }
+        });
+        return unique;
+      }
+
+      console.log('Remove dulication from array method 3 : ', removeDuplicate3(arr));
+
+      // 4th way - By using reduce method
+      //The reduce method is used to reduce the elements of the array and combine them into a final array based on some reducer function that you pass.
+
+      const removeDuplicate4 = (arr) => {
+        return arr.reduce((result, curr) => result.includes(curr) ? result : [...result, curr], []);
+      }
+      console.log('Remove dulication from array method 4 : ', removeDuplicate4(arr));
+
+      // 5th way - By using underscore JS
+      // _.uniq method produces a duplicate-free version of the array, and also we can sort this array by passing the second parameter is true.
+      // However this gives error - _is not defined
+
+      //const removeDuplicateResult = _.uniq(arr, false);
+     // const removeDuplicateWithSort = _.uniq(arr, true);
+
+     // console.log('Remove dulication from array method 5 : ', removeDuplicateResult);
+     // console.log('Remove dulication from array method 5 with sort : ', removeDuplicateWithSort);
+
+     // 6th way - Removing Duplicate Objects from a Given Array
+      const users = [
+        {
+          name : 'Supuni',
+          age : 25,
+          address : 'Ad1'
+        },
+        {
+          name : 'Nipuni',
+          age : 12,
+          address : 'Ad2'
+        },
+        {
+          name : 'Supuni',
+          age : 20,
+          address : 'Ad1'
+        },
+        {
+          name : 'Supuni',
+          age : 20,
+          address : 'Ad1'
+        },
+        {
+          name : 'Sandy',
+          age : 18,
+          address : 'Ad1'
+        }
+      ];
+
+      const uniqueObjectsFromArray = (data, key) => {
+        return [
+          ...new Map(
+            data.map(x => [key(x), x])
+          ).values()
+        ]
+      }
+
+      console.log('Get unique objects from array 1 :', uniqueObjectsFromArray(users, user => user.name));
+      console.log('Get unique objects from array 2 :', uniqueObjectsFromArray(users, user => user.age));
+      console.log('Get unique objects from array 3 :', uniqueObjectsFromArray(users, user => user.address));
+      console.log('Get unique objects from array - JSON Stringfy :', JSON.stringify(uniqueObjectsFromArray(users, user => user.name)));
+    }
+
     useEffect(()=> {
-      //   testingFunction();
-      //   testingFunction2();
-      //   testingFunction3();
-      //   testingFunction4();
-      //   testingFunction5();
-      //   testingFunction6();
-      //   testingFunction7();
-        testingFunction8();
-      //   testingFunction9();
-      //   testingFunction10();
+        testingFunction();
+        testingFunction2();
+        testingFunction3();
+        testingFunction4();
+        testingFunction5();
+        testingFunction6();
+        testingFunction7();
+       testingFunction8();
+        testingFunction9();
+        testingFunction10();
+      testingFunction11();
     
     },[]);
 
@@ -601,6 +702,7 @@ const JSTesting = () => {
                 <li>Group objects inside the nested array</li>
                 <li>Convert array of arrays to array of objects grouped together</li>
                 <li>convert array into array of objects using map() and reduce() </li>
+                <li>6 ways to remove duplicates from an array </li>
             </ol>
         </div>
     )
