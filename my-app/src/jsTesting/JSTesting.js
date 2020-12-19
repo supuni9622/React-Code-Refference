@@ -828,6 +828,84 @@ const JSTesting = () => {
       console.log('Merge array using reduce method : ', array14);
     }
 
+    const testingFunction14 = () => {
+        // Merge objects
+
+        // 1st way - Using spread operator
+        let person = {
+          firstName: 'John',
+          lastName: 'Doe',
+          age: 25,
+          ssn: '123-456-2356'
+        };
+      
+      
+        let job = {
+          jobTitle: 'JavaScript Developer',
+          location: 'USA'
+        };
+      
+        let employee = {
+          ...person,
+          ...job
+        };
+      
+       console.log(employee);
+
+       // OUTPUT
+      //  {
+      //   firstName: 'John',
+      //   lastName: 'Doe',
+      //   age: 25,
+      //   ssn: '123-456-2356',
+      //   jobTitle: 'JavaScript Developer',
+      //   location: 'USA'
+      // }
+
+      // If objects have a property with the same name, then the right-most object property overwrites the previous one
+
+      let job2 = {
+        jobTitle: 'JavaScript Developer',
+        country: 'USA'
+      };
+    
+      let location = {
+        city: 'London',
+        country: 'England'
+      };
+    
+      let remoteJob = {
+        ...job2,
+        ...location
+      };
+    
+      console.log(remoteJob);
+      //OUTPUT
+      // {
+      //   jobTitle: 'JavaScript Developer',
+      //   country: 'England',
+      //   city: 'London'
+      // }
+
+      // 2nd way -  using Object.assign() method
+      let person1 = {
+        firstName: 'John',
+        lastName: 'Doe',
+        age: 25,
+        ssn: '123-456-2356'
+    };
+    
+    
+    let job3 = {
+        jobTitle: 'JavaScript Developer',
+        country: 'USA'
+    };
+    
+    
+    let employee4 = Object.assign(person1, job3);
+    console.log(employee4);
+    }
+
     useEffect(()=> {
       //   testingFunction();
       //   testingFunction2();
@@ -841,7 +919,8 @@ const JSTesting = () => {
       //   testingFunction10();
       // testingFunction11();
       //testingFunction12();
-      testingFunction13();
+      //testingFunction13();
+      testingFunction14();
     },[]);
 
     return (
@@ -862,6 +941,7 @@ const JSTesting = () => {
                 <li>6 ways to remove duplicates from an array </li>
                 <li>Merge sort example </li>
                 <li>Merge arrays </li>
+                <li>Merge objects </li>
             </ol>
         </div>
     )
