@@ -190,6 +190,8 @@ const JSTesting = () => {
             result[collectedDate]={date:collectedDate,collected:totalCollectedPoints,redeemed:0}
             return result;
             },{})
+
+            console.log(transformedCollected);
             
             const transformed=data.redeemed.reduce((result,{redeemedDate,totalRedeemedPoints})=>{
             if(result[redeemedDate]){
@@ -392,6 +394,104 @@ const JSTesting = () => {
             })
         });
         console.log(map);
+
+        const data2 = [
+         {
+           rewardId : 1,
+           date: "Dec-12",
+           count: 12
+         },
+         {
+           rewardId: 2,
+           date: "Dec-14",
+           count: 34
+         },
+         {
+           rewardId : 3,
+           date: "Dec-15",
+           count : 45
+         },
+         {
+            rewardId : 3,
+            date: "Dec-12",
+            count : 24
+          },
+          {
+            rewardId : 3,
+            date: "Dec-14",
+            count : 100
+          },
+          {
+            rewardId : 4,
+            date: "Dec-14",
+            count : 500
+          }
+       ];
+
+       const transformedTest=data2.reduce((result,{rewardId,date, count})=>{
+
+         result[date]={date:date, [rewardId]: count}
+         return result;
+         },{})
+
+         console.log(transformedTest);
+         
+         const transformedTest2=data2.reduce((result,{rewardId,date, count})=>{
+         if(result[date] && !result[rewardId]){
+            result[date][rewardId]=count;
+         }else{
+            result[date]={
+               date:date,
+               [rewardId]: count
+            }
+         };
+         
+         return result;
+         
+         },transformedTest);
+         
+         console.log(transformedTest2);
+
+         const transformedArray = Object.values(transformedTest2);
+
+         console.log(transformedArray);
+
+         const test2 = Object.values(data2);
+         console.log('Test 2', Object.values(test2));
+
+         const rewardRedeemed = test2.reduce((result, {rewardId}) => {
+            result.push(rewardId);
+            return result;
+          }, []);
+
+          console.log('Test 22', rewardRedeemed);
+
+          const rewardRedeemed1 = data2.reduce((result, {rewardId}) => {
+            result.push({key : rewardId});
+            return result;
+          }, []);
+
+          console.log('Test 222', rewardRedeemed1);
+
+          const finale = (data, key) => {
+             return [
+                ... new Map(
+                   data.map(x => [key(x), x])
+                ).values()
+             ]
+          }
+
+         const finale11 = finale(rewardRedeemed1, line => line.key)
+
+          console.log(finale(rewardRedeemed1, line => line.key));
+          console.log(JSON.stringify(finale(rewardRedeemed1, it => it.key)));
+
+      //  const output = [
+      //     {
+      //       "rewardId": data2.count,
+      //       "date": "Dec-12",
+      //     }
+      //  ]
     }
 
     const testingFunction9 = () => {
@@ -473,16 +573,16 @@ const JSTesting = () => {
     }
 
     useEffect(()=> {
-        testingFunction();
-        testingFunction2();
-        testingFunction3();
-        testingFunction4();
-        testingFunction5();
-        testingFunction6();
-        testingFunction7();
+      //   testingFunction();
+      //   testingFunction2();
+      //   testingFunction3();
+      //   testingFunction4();
+      //   testingFunction5();
+      //   testingFunction6();
+      //   testingFunction7();
         testingFunction8();
-        testingFunction9();
-        testingFunction10();
+      //   testingFunction9();
+      //   testingFunction10();
     
     },[]);
 
@@ -507,3 +607,429 @@ const JSTesting = () => {
 }
 
 export default JSTesting
+
+/*
+import React, { useState, useCallback, useEffect, useContext } from 'react';
+import { Card, ReactVirtualized, ProgressBar } from 'shoutout_themes';
+import ListTypeTableRowRenderer from '../../utils/table/ListTypeTableRowRenderer';
+import OverviewChart from '../utils/OverviewChartCard';
+import ComparisonChart from '../utils/ComparisonChartCard';
+import LineChartWidget from './LineChartWidget';
+import { UserContext } from '../../../Contexts/userContext';
+import { AnalyticsContext } from '../context/AnalyticsContext';
+import { getRewardsCount, getRewardsSeries, getRewardRedemptionSeries, getTopRewards } from '../../../Services';
+import moment from 'moment';
+import numeral from 'numeral';
+import { LoadingComponent } from '../../utils/UtilComponents';
+
+const { Column, Table, AutoSizer } = ReactVirtualized;
+numeral.nullFormat('N/A');
+
+const data2 = [
+  {
+    rewardId : 1,
+    date: "Dec-12",
+    count: 12
+  },
+  {
+    rewardId : 2,
+    date: "Dec-12",
+    count: 34
+  },
+  {
+    rewardId : 1,
+    date: "Dec-13",
+    count: 44
+  },
+  {
+    rewardId : 2,
+    date: "Dec-13",
+    count: 10
+  },
+  {
+    rewardId : 3,
+    date: "Dec-13",
+    count: 13
+  },
+  {
+    rewardId : 4,
+    date: "Dec-13",
+    count: 20
+  },
+  {
+    rewardId: 2,
+    date: "Dec-14",
+    count: 34
+  },
+  {
+    rewardId : 1,
+    date: "Dec-15",
+    count : 30
+  },
+  {
+    rewardId : 2,
+    date: "Dec-15",
+    count : 23
+  },
+  {
+    rewardId : 3,
+    date: "Dec-15",
+    count : 45
+  },
+  {
+    rewardId : 4,
+    date: "Dec-15",
+    count : 20
+  },
+  {
+     rewardId : 3,
+     date: "Dec-12",
+     count : 24
+   },
+   {
+    rewardId : 4,
+    date: "Dec-12",
+    count : 15
+  },
+   {
+     rewardId : 3,
+     date: "Dec-14",
+     count : 100
+   },
+   {
+    rewardId : 1,
+    date: "Dec-14",
+    count : 0
+  },
+   {
+     rewardId : 4,
+     date: "Dec-14",
+     count : 90
+   }
+];
+
+const finale = (data, key) => {
+  return [
+     ... new Map(
+        data.map(x => [key(x), x])
+     ).values()
+  ]
+};
+
+const Rewards = () => {
+
+  const { isAuth } = useContext(UserContext);
+  const { fromDate, toDate, selectedTimePeriod } = useContext(AnalyticsContext);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [rewardsCount, setRewardsCount] = useState({});
+  const [rewardSeries, setRewardSeries] = useState({});
+  const [rewardSeriesRedeemed, setRewardSeriesRedeemed] = useState([]);
+  const [rewardSeriesClaimed, setRewardSeriesClaimed] = useState([]);
+  const [topRewardData, setTopRewardData] = useState([]);
+  const [lineOptions, setLineOptions] = useState([]);
+  const [lineChartData, setLineChartData] = useState([]);
+
+  const loadAllData = useCallback(async () => {
+
+    try {
+
+      setIsLoading(true);
+
+      const [rewardSeriesData, rewardCountData, topReward, lineChartData] = await Promise.all([getRewardsSeries({ fromDate, toDate }), getRewardsCount({ fromDate, toDate }), getTopRewards({ fromDate, toDate }), getRewardRedemptionSeries({ fromDate, toDate })]);
+      setIsLoading(false);
+      setRewardsCount(rewardCountData);
+      setRewardSeries(rewardSeriesData);
+
+      setTopRewardData(topReward);
+
+      const rewardRedeemed = rewardSeriesData.redeemed.reduce((result, data) => {
+        result.push({ key: moment(data["date"]).format("MMM-DD"), rewardCountRedeemed: data.count });
+        return result;
+      }, []);
+
+      const rewardClaimed = rewardSeriesData.claimed.reduce((result, data) => {
+        result.push({ key: moment(data["date"]).format("MMM-DD"), rewardCountClaimed: data.count });
+        return result;
+      }, []);
+
+      setRewardSeriesRedeemed(rewardRedeemed);
+      setRewardSeriesClaimed(rewardClaimed);
+
+      const transformedRewardClaimed = rewardSeriesData.claimed.reduce((result, { date, count = 0 }) => {
+
+        result[date] = { date: moment(date).format("MMM-DD"), claimed: count, redeemed: 0 }
+        return result;
+      }, {})
+
+      const transformed = rewardSeriesData.redeemed.reduce((result, { date, count }) => {
+        if (result[date]) {
+          result[date].redeemed = count;
+        } else {
+          result[date] = {
+            date: moment(date).format("MMM-DD"),
+            claimed: 0,
+            redeemed: count
+          };
+        }
+
+        return result;
+
+      }, transformedRewardClaimed)
+
+      const transformedRewardArray = Object.values(transformed);
+
+      setRewardSeries(transformedRewardArray);
+
+      const transformedLineData=data2.reduce((result,{rewardId,date, count})=>{
+
+        result[date]={date:date, [rewardId]: count}
+        return result;
+        },{})
+
+        console.log(transformedLineData);
+        
+        const transformedLineChartData=data2.reduce((result,{rewardId,date, count})=>{
+        if(result[date] && !result[rewardId]){
+           result[date][rewardId]=count;
+        }else{
+           result[date]={
+              date:date,
+              [rewardId]: count
+           }
+        };
+        
+        return result;
+        
+        },transformedLineData);
+        
+        console.log(transformedLineChartData);
+
+        const transformedArray = Object.values(transformedLineChartData);
+
+        console.log(transformedArray);
+
+        const transformLines = data2.reduce((result, {rewardId}) => {
+          result.push({key : rewardId});
+          return result;
+        }, []);
+
+      const lineChartLineOptions = finale(transformLines, line => line.key)
+
+      setLineChartData(transformedArray);
+      setLineOptions(lineChartLineOptions);
+
+
+    } catch (e) {
+      console.error(e);
+    }
+
+  }, [setRewardsCount, setRewardSeriesRedeemed, setRewardSeriesClaimed, setRewardSeries, setTopRewardData, fromDate, toDate]);
+
+  useEffect(() => {
+    if (isAuth && fromDate) {
+      loadAllData();
+    }
+
+  }, [isAuth, fromDate, toDate]);
+
+  return (
+    <>
+      <div className="mb-3">
+        <h4 className="font-weight-bold">Rewards</h4>
+        <Card className="p-4 mb-4">
+          <h6>Top Rewards</h6>
+          {
+            isLoading ?
+              <LoadingComponent />
+              :
+              <>
+                {
+                  topRewardData.length > 0 ?
+                    <div className="d-flex justify-content-start">
+                      {
+                        topRewardData.map((reward, rewardIndex) => {
+                          return (
+                            <div key={`r-${rewardIndex}`}>
+                              <img
+                                src={reward.imageUrls[0]}
+                                alt='presentage'
+                                style={{ width: '120px', height: '100px', borderRadius: '10%' }}
+                                className='m-3'
+                              />
+                              <h6 className='text-center'>{reward.name}</h6>
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                    : <p className='no-rewards-text mb-0'> No top rewards found </p>
+                }
+              </>
+          }
+        </Card>
+        <div className='d-flex justify-content-between'>
+          <Card className="mr-4 w-50">
+            {isLoading ?
+              <LoadingComponent /> :
+              <OverviewChart
+                title='Redeemed Rewards'
+                amount={numeral(rewardsCount.redeemed?.count).format('0a')}
+                presentage={`${numeral(rewardsCount.redeemed?.growth).format('0a')}% vs ${selectedTimePeriod}`}
+                data={rewardSeriesRedeemed}
+                barOptions={{ xAxis: { key: "key", type: "category" }, bar: [{ key: 'rewardCountRedeemed' }] }}
+                color='#8884d8'
+              />
+            }
+          </Card>
+          <Card className="w-50">
+            {isLoading ?
+              <LoadingComponent /> :
+              <OverviewChart
+                title='Claimed Rewards'
+                amount={numeral(rewardsCount.claimed?.count).format('0a')}
+                presentage={`${numeral(rewardsCount.claimed?.growth).format('0a')}% vs ${selectedTimePeriod}`}
+                data={rewardSeriesClaimed}
+                barOptions={{ xAxis: { key: "key", type: "category" }, bar: [{ key: 'rewardCountClaimed' }] }}
+                color='#64dbfe'
+              />
+            }
+          </Card>
+        </div>
+      </div>
+      <Card className='p-4 mb-3'>
+        {isLoading ?
+          <LoadingComponent /> :
+          <ComparisonChart
+            title='Claimed and Redeemed Rewards'
+            data={rewardSeries}
+            barOptions={{ yAxis: { type: "number", allowDecimals: false }, xAxis: { key: "date", type: "category" }, bar: [{ key1: 'claimed', key2: 'redeemed' }] }}
+          />
+        }
+      </Card>
+      <Card className='p-4 mb-3'>
+        {isLoading ?
+          <LoadingComponent /> :
+          <>
+            <h5>Rewards</h5>
+            {
+              lineChartData.length > 0 ?
+                <div style={{ marginLeft: '-2.5rem' }}>
+                  <LineChartWidget
+                    data={lineChartData}
+                    //lineOptions={{ yAxis: { type: "number", allowDecimals: false }, lines: [{ key: 'uv', type: "step" },{key: 'pv', type: "step" }] }}
+                    //lineOptions={{ xAxis: { key: "name" }, line: [{ key1: 'uv', key2: 'pv', type: "step" }] }}
+                    lineOptions={lineOptions}
+                  />
+                </div>
+                :
+                <img src="/assets/images/defaultImages/Graph 01.svg" className="img-fluid p-4" alt='default graph' />
+            }
+          </>
+        }
+      </Card>
+      <Card className='p-4 mb-3' style={{ width: '100%' }}>
+        <h6>Rewards</h6>
+        <div className="h-100 my-3">
+          <AutoSizer disableHeight>
+            {({ width }) => (
+              <Table
+                disableHeader={false}
+                headerHeight={55}
+                height={400}
+                // headerClassName="px-3"
+                rowHeight={100}
+                rowGetter={({ index }) => topRewardData[index]}
+                rowClassName={({ index }) => index === -1 ? "px-3 cursor-pointer-hover" : "cursor-pointer-hover"}
+                rowCount={topRewardData.length || 0}
+                // sortBy={sortBy}
+                // sortDirection={sortDirection}
+                width={width}
+                //sort={sort}
+                rowRenderer={ListTypeTableRowRenderer}
+                noRowsRenderer={() => {
+                  return isLoading ? <LoadingComponent /> : <div className="text-center">No data found.</div>;
+                }}
+              >
+
+                <Column
+                  label="Reward"
+                  dataKey='name'
+                  width={150}
+                  flexGrow={1}
+                  cellRenderer={({ rowData }) => (
+                    <p className="mb-0">{rowData.name}</p>
+                  )
+                  }
+                />
+                <Column
+                  label=""
+                  dataKey=''
+                  width={600}
+                  flexGrow={1}
+                  cellRenderer={({ rowData }) => (
+                    <ProgressBar variant='primary' now={rowData.percentage} />
+                  )
+                  }
+                />
+                <Column
+                  label="Amount"
+                  dataKey=''
+                  width={20}
+                  flexGrow={1}
+                  cellRenderer={({ rowData }) => (
+                    <div className="mb-0 text-center">
+                      <p className="mb-0">{numeral(rowData.totalRedeemedCount).format('0a')}</p>
+                      <small className='text-muted mb-0 '>{`${numeral(rowData.percentage).format('0a')}%`}</small>
+                    </div>
+                  )
+                  }
+                />
+
+              </Table>
+            )}
+          </AutoSizer>
+        </div>
+      </Card>
+    </>
+  )
+}
+
+export default Rewards
+*/
+
+/*
+import React from 'react';
+import {ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+
+const LineChartWidget = ({data, lineOptions =  [] }) => {
+    return (
+        <ResponsiveContainer
+            width="100%"
+            height={400}
+            margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
+        >
+            <LineChart
+                width={1000}
+                height={300}
+                data={data}
+                margin={{
+                    top: 40, right: 20, left: 60, bottom: 10,
+                }}
+            >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="date" />
+                <YAxis />
+                <Tooltip />
+                <Legend  verticalAlign="top" height={36}/>
+                {lineOptions.map((item)=>{
+                    return (<Line key={item.key} type={item.type || "monotone"} dataKey={item.key||'value'} stroke={`#${Math.floor(Math.random()*16777215).toString(16)}`}  name={item.key}/>)
+                })}
+            </LineChart>
+        </ResponsiveContainer>
+    )
+  }
+
+export default LineChartWidget
+
+*/
