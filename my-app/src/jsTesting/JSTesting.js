@@ -906,6 +906,93 @@ const JSTesting = () => {
     console.log(employee4);
     }
 
+    const testingFunction15 = () => {
+      const friend = {
+        details : {
+          name : 'Supuni',
+          age : 24
+        },
+        deactive : false
+      }
+
+      const salesData = {
+        "sales":{ 
+            "growth":0,
+            "value":13
+          },
+          "revenue":{
+            "growth":0,
+            "value":83698
+          },
+          "avgBucketSize":{
+            "growth":0,
+            "value":6438.31
+          },
+          "repeatPurchases":{
+            "growth":0,
+            "value":0
+          }
+        };
+
+      const name1 = friend.details.name;
+      console.log('Name :', name1);
+      console.log('Sales :', salesData.sales.value); // In this scenario some times we can get 'undefined'
+
+      // To avoid undefined
+      if(friend && friend.details) {
+        const name = friend.details.name;
+        console.log('Name with avoiding undefined, previous way :', name);
+      }
+
+      // New way - Optional chaining
+      const name2 = friend?.details?.name;
+      console.log('Name with optional chaining :', name2);
+
+      // Nullish coalescing - set a default value
+      // isActive will be true if user.active is null or undefined but will be false if user.active is falsy.
+
+      const isActive = friend.active ?? true;
+      console.log('Nullish Coalescing operator ?? checking : ', isActive);
+
+      const isDeactive = friend.deactive ?? true;
+      console.log('Nullish Coalescing operator ?? checking2 : ', isDeactive);
+
+      //Intl.DisplayNames
+
+      //provides language sensitive string comparison, number formatting, and date and time formatting
+
+      const regionNames = new Intl.DisplayNames(['es'], {type: 'region'})
+        const regionTest1 =  regionNames.of('FR') // 'Francia'
+        const regionTest2 = regionNames.of('US') // 'Estados Unidos'
+
+      const langNames = new Intl.DisplayNames(['fr'], {type: 'language'})
+        const langTest1 =  langNames.of('ES') // 'espagnol'
+        const langTest2 = langNames.of('EN') // 'anglais'
+
+      const currencyNames = new Intl.DisplayNames(['zh-Hans'], {type: 'currency'});
+        const currencyTest1 =currencyNames.of('USD') // '美元'
+        const currencyTest2 = currencyNames.of('EUR') // '欧元'
+
+        console.log('Test 1', regionTest1);
+        console.log('Test 2', regionTest2);
+        console.log('Test 3', langTest1);
+        console.log('Test 4', langTest2);
+        console.log('Test 5', currencyTest1);
+        console.log('Test 6', currencyTest2);
+
+        //Intl.DateTimeFormat options
+
+        const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
+        // British English uses day-month-year order
+        console.log(new Intl.DateTimeFormat('en-GB').format(date))
+        // "19/12/2012"
+
+        const options = {calendar: 'chinese', numberingSystem: 'arab'}
+        const dateFormat = new Intl.DateTimeFormat('default', options)
+
+        console.log('Testing :', dateFormat);
+    }
+
     useEffect(()=> {
       //   testingFunction();
       //   testingFunction2();
@@ -920,7 +1007,8 @@ const JSTesting = () => {
       // testingFunction11();
       //testingFunction12();
       //testingFunction13();
-      testingFunction14();
+      //testingFunction14();
+      testingFunction15();
     },[]);
 
     return (
