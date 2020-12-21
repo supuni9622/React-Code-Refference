@@ -993,6 +993,35 @@ const JSTesting = () => {
         console.log('Testing :', dateFormat);
     }
 
+    const testingFunction16 = () => {
+      // JS builtin functions 
+
+      // toLocaleString
+      let date = new Date
+      console.log('Date,', date) // Sat Dec 10 2020 10:00:00 GMT-0500 (Eastern Standard Time)
+
+      //This built in JavaScript function formatted this date into a much more readable, and usable format.
+
+      let formattedDate = date.toLocaleString("en-US")
+      console.log('Formated date',formattedDate); //formattedDate = 12/10/2020, 10:00:00 AM
+
+      let number = 1000000000;
+      let numberWithCommas = number.toLocaleString("en-US");
+      console.log('Number with commas :', numberWithCommas);
+      //numberWithCommas = "1,000,000,000"
+
+      //toFixed
+
+      //This function is used to limit the number of digits shown after the decimal place. .toFixed takes in 1 argument, the number of decimal places you want to display. If the argument is omitted, it defaults to 0.
+      let decimalNumber = 0.12345
+      let noDecimal = decimalNumber.toFixed() // => "0"
+      let twoDecimals = decimalNumber.toFixed(2) // => "0.12"
+
+      console.log('0.12345 with no decimal values :', noDecimal);
+      console.log('0.12345 with 2 decimal values :', twoDecimals);
+
+    }
+
     useEffect(()=> {
       //   testingFunction();
       //   testingFunction2();
@@ -1008,7 +1037,8 @@ const JSTesting = () => {
       //testingFunction12();
       //testingFunction13();
       //testingFunction14();
-      testingFunction15();
+      //testingFunction15();
+      testingFunction16();
     },[]);
 
     return (
@@ -1030,7 +1060,25 @@ const JSTesting = () => {
                 <li>Merge sort example </li>
                 <li>Merge arrays </li>
                 <li>Merge objects </li>
+                <li>Date Manipulations </li>
             </ol>
+
+            <div>
+              <h5>JS type='search'</h5>
+              <form>
+                <label>Search</label>
+                <input type='search' placeholder='search here'/>
+                <button type='submit'> Search </button>
+              </form>
+            </div>
+            <div>
+            <h5>JS type='text'</h5>
+              <form>
+                <label>Search</label>
+                <input type='text' placeholder='search here'/>
+                <button type='submit'> Search </button>
+              </form>
+            </div>
         </div>
     )
 }
